@@ -5,6 +5,7 @@
       <li>菜单1</li>
       <li>菜单2</li>
     </ul>
+    <span class="toggleAside"></span>
   </div>
 </template>
 
@@ -25,11 +26,13 @@
 
 <style lang="scss" scoped>
   .topnav {
-    position: relative;
-    z-index: 10;
     background: pink;
     display: flex;
     padding: 16px;
+    position: relative;
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
     
     > .logo {
       max-width: 6em;
@@ -44,7 +47,18 @@
       > li {
         margin: 0 1em;
       }
-      
+    }
+    
+    > .toggleMenu {
+    }
+    
+    @media (max-width: 500px) {
+      > .menu {
+        display: none;
+      }
+      > .logo {
+        margin: 0 auto;
+      }
     }
   }
 </style>
