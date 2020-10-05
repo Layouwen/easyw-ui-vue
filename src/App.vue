@@ -9,7 +9,7 @@
     name: 'App',
     setup() {
       const asideVisible = ref(false);
-      provide('fuck', asideVisible);
+      provide('asideVisible', asideVisible);
     },
   };
 </script>

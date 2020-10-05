@@ -14,7 +14,7 @@
   export default {
     name: 'Topnav',
     setup() {
-      const asideVisible = inject<Ref<boolean>>('fuck');
+      const asideVisible = inject<Ref<boolean>>('asideVisible');
       console.log(asideVisible.value, 111);
       const toggleAside = () => {
         asideVisible.value = !asideVisible.value;

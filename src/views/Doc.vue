@@ -33,7 +33,7 @@
     name: 'Doc',
     components: {Topnav},
     setup() {
-      const asideVisible = inject<Ref<boolean>>('fuck');
+      const asideVisible = inject<Ref<boolean>>('asideVisible');
       return {asideVisible};
     },
   };
