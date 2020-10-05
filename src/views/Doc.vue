@@ -19,7 +19,9 @@
           </li>
         </ol>
       </aside>
-      <main>主内容</main>
+      <main>
+        <router-view/>
+      </main>
     </div>
   </div>
 </template>
@@ -56,9 +58,11 @@
   }
   
   @media (max-width: 500px) {
-    padding: 70px 16px 16px 16px;
-    position: fixed;
-    top: 0;
-    left: 0;
+    aside {
+      padding: 70px 16px 16px 16px;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
   }
 </style>
