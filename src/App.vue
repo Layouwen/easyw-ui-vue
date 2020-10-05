@@ -1,6 +1,4 @@
 <template>
-  <router-link to="/">Easyw</router-link>
-  <router-link to="/test">Test</router-link>
   <router-view/>
 </template>
 
