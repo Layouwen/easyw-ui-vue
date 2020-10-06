@@ -1,24 +1,25 @@
 <template>
-  <div :size="size">
-    <!-- 使用 $attrs 将继承绑定到button标签中 -->
-    <button v-bind="rest">
-      <slot/>
-    </button>
-  </div>
+  <!-- :class="{[`theme-${theme}`]: theme}" -->
+  <button class="easyw-button"
+          :class="`theme-${theme}`">
+    <slot/>
+  </button>
 </template>
 
 <script lang='ts'>
 export default {
   name: 'Button',
-  inheritAttrs: false, // 取消继承外部的事件绑定
-  setup(props, context) {
-    // 将 size 取出来，其余所有事件使用...rest接收
-    const {size, ...rest} = context.attrs;
-    return {size, rest};
+  props: {
+    theme: {
+      type: String,
+      default: 'button',
+    },
   },
 };
 </script>
 
 <style lang='scss' scoped>
-
+div {
+  border: 1px solid red;
+}
 </style>
