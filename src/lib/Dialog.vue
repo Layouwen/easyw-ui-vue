@@ -4,12 +4,11 @@
     <div class="easyw-dialog-wrapper">
       <div class="easyw-dialog">
         <header>
-          标题
+          <slot name="title"/>
           <span class="easyw-dialog-close" @click="close"></span>
         </header>
         <main>
-          <p>第一行字</p>
-          <p>第二行字</p>
+          <slot name="content"/>
         </main>
         <footer>
           <Button level="main" @click="ok">OK</Button>
@@ -40,6 +39,9 @@ export default {
     },
     cancel: {
       type: Function,
+    },
+    title: {
+      type: String,
     },
   },
   setup(props, context) {
