@@ -1,12 +1,14 @@
 <template>
   <!-- :class="{[`theme-${theme}`]: theme}" -->
   <button class="easyw-button"
-          :class="{[`easyw-theme-${theme}`]: theme}">
+          :class="classes">
     <slot/>
   </button>
 </template>
 
 <script lang='ts'>
+import {computed} from 'vue';
+
 export default {
   name: 'Button',
   props: {
@@ -14,6 +16,20 @@ export default {
       type: String,
       default: 'button',
     },
+    size: {
+      type: String,
+      default: 'normal',
+    },
+  },
+  setup(props) {
+    const {theme, size} = props;
+    const classes = computed(() => {
+      return {
+        [`easyw-theme-${theme}`]: theme,
+        [`easyw-size-${size}`]: size,
+      };
+    });
+    return {classes};
   },
 };
 </script>
@@ -75,6 +91,18 @@ $radius: 4px;
     &:hover, &:focus {
       background: darken(white, 5%);;
     }
+  }
+  
+  &.easyw-size-big {
+    font-size: 24px;
+    height: 48px;
+    padding: 0 16px
+  }
+  
+  &.easyw-size-small {
+    font-size: 12px;
+    height: 20px;
+    padding: 0 4px;
   }
 }
 </style>
