@@ -1,18 +1,23 @@
 <template>
-  <div class="easyw-dialog-overlay"></div>
-  <div class="easyw-dialog-wrapper">
-    <div class="easyw-dialog">
-      <header>标题 <span class="easyw-dialog-close"></span></header>
-      <main>
-        <p>第一行字</p>
-        <p>第二行字</p>
-      </main>
-      <footer>
-        <Button level="main">OK</Button>
-        <Button>Cancel</Button>
-      </footer>
+  <template v-if="visible">
+    <div class="easyw-dialog-overlay"></div>
+    <div class="easyw-dialog-wrapper">
+      <div class="easyw-dialog">
+        <header>
+          标题
+          <span class="easyw-dialog-close"></span>
+        </header>
+        <main>
+          <p>第一行字</p>
+          <p>第二行字</p>
+        </main>
+        <footer>
+          <Button level="main">OK</Button>
+          <Button>Cancel</Button>
+        </footer>
+      </div>
     </div>
-  </div>
+  </template>
 </template>
 
 <script lang='ts'>
@@ -21,6 +26,12 @@ import Button from './Button.vue';
 export default {
   name: 'Dialog',
   components: {Button},
+  props: {
+    visible: {
+      type: Boolean,
+      default: false,
+    },
+  },
 };
 </script>
 
