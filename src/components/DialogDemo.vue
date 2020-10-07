@@ -1,93 +1,16 @@
 <template>
   <div>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
-    <p>dialogDemo</p>
+    <Dialog></Dialog>
   </div>
 </template>
 
 <script lang='ts'>
-  export default {
-    name: 'DialogDemo',
-  };
+import Dialog from '../lib/Dialog.vue';
+
+export default {
+  name: 'DialogDemo',
+  components: {Dialog},
+};
 </script>
 
 <style lang='scss' scoped>
