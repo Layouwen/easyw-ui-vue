@@ -20,6 +20,10 @@ export default {
       type: String,
       default: 'normal',
     },
+    disable: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props) {
     const {theme, size, level} = props;
@@ -41,6 +45,7 @@ $color: #333;
 $blue: #40a9ff;
 $radius: 4px;
 $red: red;
+$grey: grey;
 .easyw-button {
   box-sizing: border-box;
   height: $h;
@@ -163,6 +168,24 @@ $red: red;
       &:focus {
         color: darken($red, 10%);
       }
+    }
+  }
+  
+  &.easyw-theme-button {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+      
+      &:hover {
+        border-color: $grey;
+      }
+    }
+  }
+  
+  &.easyw-theme-link, &.easyw-theme-text {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
     }
   }
 }
