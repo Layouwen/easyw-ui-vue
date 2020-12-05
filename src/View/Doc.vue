@@ -1,9 +1,6 @@
 <template>
   <div>
-    <div class="topNav">
-      <div class="logo"></div>
-      <div class="menu"></div>
-    </div>
+    <TopNav />
     <div class="banner">
       <h1>无名框架</h1>
       <h2>基于Vue3开发的无名框架</h2>
@@ -16,8 +13,11 @@
 </template>
 
 <script lang='ts'>
+import TopNav from '../components/TopNav.vue';
+
 export default {
   name: 'Doc',
+  components: {TopNav},
 };
 </script>
 
