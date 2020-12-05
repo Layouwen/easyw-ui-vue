@@ -47,7 +47,7 @@ $radius: 4px;
   &:hover,
   &:focus {
     color: $blue;
-    border-right: $blue;
+    border-color: $blue;
   }
 
   &::-moz-focus-inner {
