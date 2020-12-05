@@ -1,110 +1,13 @@
 <template>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
-  <p>我的Switch内容</p>
+  <Switch />
 </template>
 
 <script lang='ts'>
+import Switch from '../lib/Switch.vue';
+
 export default {
   name: 'SwitchDemo',
+  components: {Switch},
 };
 </script>
 
