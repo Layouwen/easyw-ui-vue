@@ -13,7 +13,7 @@ export default {
     console.log(props, 'props');
     console.log(context, 'context');
     const toggleChecked = () => {
-      context.emit('input', !props.value);
+      context.emit('update:value', !props.value);
     };
     return {toggleChecked};
   },
