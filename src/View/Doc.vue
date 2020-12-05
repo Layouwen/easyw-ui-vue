@@ -40,12 +40,8 @@ export default {
 
 <style lang='scss' scoped>
 aside {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 150px;
   padding: 16px;
-  padding-top: 70px;
   background: lightblue;
 
   > h2 {
@@ -56,6 +52,13 @@ aside {
     > li {
       padding: 4px 0;
     }
+  }
+
+  @media (max-width: 500px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 70px;
   }
 }
 </style>

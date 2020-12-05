@@ -1,10 +1,11 @@
 <template>
   <div class="topNav">
-    <div class="logo" @click="toggleMenu">LOGO</div>
+    <div class="logo">LOGO</div>
     <ul class="menu">
       <li>菜单1</li>
       <li>菜单2</li>
     </ul>
+    <span class="toggleAside" @click="toggleMenu"></span>
   </div>
 </template>
 
@@ -43,6 +44,29 @@ export default {
 
     > li {
       margin: 0 1em;
+    }
+  }
+
+  > .toggleAside {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
+    display: none;
+    width: 24px;
+    height: 24px;
+    background: lightcoral;
+  }
+
+  @media (max-width: 500px) {
+    > .menu {
+      display: none;
+    }
+    > .logo {
+      margin: 0 auto;
+    }
+    > .toggleAside {
+      display: block;
     }
   }
 }
