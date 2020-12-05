@@ -1,18 +1,22 @@
 <template>
   <template v-if="visible">
-    <div class="abc-dialog-overlay" @click="onClickOverlay" />
-    <div class="abc-dialog-wrapper">
-      <div class="abc-dialog">
-        <header>{{ title }}<span class="abc-dialog-close" @click="close"></span></header>
-        <main>
-          <slot />
-        </main>
-        <footer>
-          <Button level="main" @click="ok">确认</Button>
-          <Button @click="cancel">取消</Button>
-        </footer>
+    <Teleport to="body">
+      <div class="abc-dialog-overlay" @click="onClickOverlay" />
+      <div class="abc-dialog-wrapper">
+        <div class="abc-dialog">
+          <header>
+            <slot name="title" />
+            <span class="abc-dialog-close" @click="close"></span></header>
+          <main>
+            <slot name="content" />
+          </main>
+          <footer>
+            <Button level="main" @click="ok">确认</Button>
+            <Button @click="cancel">取消</Button>
+          </footer>
+        </div>
       </div>
-    </div>
+    </Teleport>
   </template>
 </template>
 
@@ -23,10 +27,6 @@ export default {
   name: 'Dialog',
   components: {Button},
   props: {
-    title: {
-      type: String,
-      default: '提示',
-    },
     visible: {
       type: Boolean,
       default: false,

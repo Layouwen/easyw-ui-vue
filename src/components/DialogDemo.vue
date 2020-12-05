@@ -4,8 +4,13 @@
   <Button @click="toggleDialog">显示Dialog</Button>
   <Dialog v-model:visible="x" :close-on-click-overlay="false" close-on-click-overlay
           :ok="fn1" :cancel="fn2">
-    <p>h1</p>
-    <p>h2</p>
+    <template v-slot:title>
+      <strong>我是加粗的标题</strong>
+    </template>
+    <template v-slot:content>
+      <p>h1</p>
+      <p>h2</p>
+    </template>
   </Dialog>
 </template>
 
