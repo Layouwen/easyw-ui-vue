@@ -29,7 +29,7 @@ button {
   width: $h*2;
   border: none;
   border-radius: $h / 2;
-  background: grey;
+  background: #bfbfbf;
 
   span {
     position: absolute;
@@ -42,8 +42,21 @@ button {
     transition: all 250ms;
   }
 
+  &:active {
+    > span {
+      width: $h2 + 4px;
+    }
+  }
+
   &.checked {
-    background: blue;
+    background: #1890ff;
+
+    &:active {
+      > span {
+        width: $h2 + 4px;
+        margin-left: -4px;
+      }
+    }
 
     > span {
       left: calc(100% - #{$h2} - 2px);
