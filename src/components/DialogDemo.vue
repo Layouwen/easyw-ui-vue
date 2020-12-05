@@ -12,12 +12,15 @@
       <p>h2</p>
     </template>
   </Dialog>
+  <h1>示例2</h1>
+  <Button @click="showDialog">API显示Dialog</Button>
 </template>
 
 <script lang='ts'>
 import { ref } from 'vue';
 import Button from '../lib/Button.vue';
 import Dialog from '../lib/Dialog.vue';
+import { openDialog } from '../lib/openDialog';
 
 export default {
   name: 'DialogDemo',
@@ -34,7 +37,13 @@ export default {
     };
     const fn2 = () => {
     };
-    return {toggleDialog, x, fn1, fn2};
+    const showDialog = () => {
+      openDialog({
+        title: '标题',
+        content: '你好',
+      });
+    };
+    return {toggleDialog, x, fn1, fn2, showDialog};
   },
 };
 </script>
