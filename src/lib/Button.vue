@@ -1,6 +1,7 @@
 <template>
   <button class="abc-button"
-          :class="classes">
+          :class="classes"
+          :disabled="disabled">
     <slot />
   </button>
 </template>
@@ -22,6 +23,10 @@ export default {
     level: {
       type: String,
       default: 'normal',
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
     },
   },
   setup(props) {
@@ -45,6 +50,7 @@ $color: #333;
 $blue: #40a9ff;
 $radius: 4px;
 $red: red;
+$grey: grey;
 .abc-button {
   box-sizing: border-box;
   display: inline-flex;
@@ -118,9 +124,7 @@ $red: red;
       color: white;
       border-color: $blue;
       background: $blue;
-
-      &:hover,
-      &:focus {
+      &:hover, &:focus {
         border-color: darken($blue, 10%);
         background: darken($blue, 10%);
       }
@@ -130,9 +134,7 @@ $red: red;
       color: white;
       border-color: $red;
       background: $red;
-
-      &:hover,
-      &:focus {
+      &:hover, &:focus {
         border-color: darken($red, 10%);
         background: darken($red, 10%);
       }
@@ -142,7 +144,6 @@ $red: red;
   &.abc-theme-link {
     &.abc-level-danger {
       color: $red;
-
       &:hover, &:focus {
         color: darken($red, 10%);
       }
@@ -152,7 +153,6 @@ $red: red;
   &.abc-theme-text {
     &.abc-level-main {
       color: $blue;
-
       &:hover, &:focus {
         color: darken($blue, 10%);
       }
@@ -160,10 +160,23 @@ $red: red;
 
     &.abc-level-danger {
       color: $red;
-
       &:hover, &:focus {
         color: darken($red, 10%);
       }
+    }
+  }
+
+  &.abc-theme-button {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+      &:hover { border-color: $grey; }
+    }
+  }
+  &.abc-theme-link, &.abc-theme-text {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
     }
   }
 }

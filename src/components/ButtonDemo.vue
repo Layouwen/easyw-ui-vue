@@ -35,9 +35,15 @@
     <Button theme="link" level="danger">危险链接按钮</Button>
   </div>
   <div>
-    <Button theme="text" level="main">主要按钮</Button>
-    <Button theme="text">普通按钮</Button>
-    <Button theme="text" level="danger">危险按钮</Button>
+    <Button theme="text" level="main">主要文字按钮</Button>
+    <Button theme="text">普通文字按钮</Button>
+    <Button theme="text" level="danger">危险文字按钮</Button>
+  </div>
+  <h1>示例4</h1>
+  <div>
+    <Button disabled>默认按钮禁用</Button>
+    <Button theme="link" @click="test" disabled>链接按钮禁用</Button>
+    <Button theme="text" disabled>文字按钮禁用</Button>
   </div>
 </template>
 
