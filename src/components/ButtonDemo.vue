@@ -2,10 +2,26 @@
   <div>Button 示例</div>
   <h1>示例1</h1>
   <div>
-    <Button>你好</Button>
-    <Button theme="button">你好</Button>
-    <Button theme="link">你好</Button>
-    <Button theme="text">你好</Button>
+    <Button>默认样式按钮</Button>
+    <Button theme="button">普通按钮</Button>
+    <Button theme="link">链接按钮</Button>
+    <Button theme="text">文本按钮</Button>
+  </div>
+  <h1>示例2</h1>
+  <div>
+    <Button theme="button" size="small">小按钮</Button>
+    <Button theme="button" size="normal">普通按钮</Button>
+    <Button theme="button" size="big">大按钮</Button>
+  </div>
+  <div>
+    <Button theme="link" size="small">小按钮</Button>
+    <Button theme="link" size="normal">普通按钮</Button>
+    <Button theme="link" size="big">大按钮</Button>
+  </div>
+  <div>
+    <Button theme="text" size="small">小按钮</Button>
+    <Button theme="text" size="normal">普通按钮</Button>
+    <Button theme="text" size="big">大按钮</Button>
   </div>
 </template>
 

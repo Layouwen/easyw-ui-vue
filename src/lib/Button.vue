@@ -1,11 +1,13 @@
 <template>
   <button class="abc-button"
-          :class="{[`abc-theme-${theme}`]: theme}">
+          :class="classes">
     <slot />
   </button>
 </template>
 
 <script lang='ts'>
+import { computed } from 'vue';
+
 export default {
   name: 'Button.vue',
   props: {
@@ -13,8 +15,20 @@ export default {
       type: String,
       default: 'button',
     },
+    size: {
+      type: String,
+      default: 'normal',
+    },
   },
   setup(props, context) {
+    const {theme, size} = props;
+    const classes = computed(() => {
+      return {
+        [`abc-theme-${theme}`]: theme,
+        [`abc-size-${size}`]: size,
+      };
+    });
+    return {classes};
   },
 };
 </script>
@@ -50,8 +64,46 @@ $radius: 4px;
     border-color: $blue;
   }
 
+  &:focus {
+    outline: none;
+  }
+
   &::-moz-focus-inner {
     border: 0;
+  }
+
+  &.abc-theme-link {
+    border-color: transparent;
+    box-shadow: none;
+    color: $blue;
+
+    &:hover,
+    &:focus {
+      color: lighten($blue, 10%);
+    }
+  }
+
+  &.abc-theme-text {
+    border-color: transparent;
+    box-shadow: none;
+    color: inherit;
+
+    &:hover,
+    &:focus {
+      background: darken(white, 5%);
+    }
+  }
+
+  &.abc-size-big {
+    height: 48px;
+    padding: 0 16px;
+    font-size: 24px;
+  }
+
+  &.abc-size-small {
+    height: 20px;
+    padding: 0 4px;
+    font-size: 12px;
   }
 }
 </style>
