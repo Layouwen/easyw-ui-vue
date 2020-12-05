@@ -2,7 +2,8 @@
   <div>Dialog 示例</div>
   <h1>示例1</h1>
   <Button @click="toggleDialog">显示Dialog</Button>
-  <Dialog :visible="x"></Dialog>
+  <Dialog v-model:visible="x" :close-on-click-overlay="false" close-on-click-overlay
+          :ok="fn1" :cancel="fn2"></Dialog>
 </template>
 
 <script lang='ts'>
@@ -19,7 +20,13 @@ export default {
       x.value = true;
       console.log(x.value);
     };
-    return {toggleDialog, x};
+    const fn1 = () => {
+      alert('你点击了确认按钮');
+      return false;
+    };
+    const fn2 = () => {
+    };
+    return {toggleDialog, x, fn1, fn2};
   },
 };
 </script>
