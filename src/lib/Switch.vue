@@ -1,7 +1,6 @@
 <template>
   <div>
     <button :class="{checked: value}" @click="toggleChecked"><span></span></button>
-    {{ value }}
   </div>
 </template>
 
@@ -10,8 +9,6 @@ export default {
   name: 'Switch',
   props: {value: Boolean},
   setup(props, context) {
-    console.log(props, 'props');
-    console.log(context, 'context');
     const toggleChecked = () => {
       context.emit('update:value', !props.value);
     };
