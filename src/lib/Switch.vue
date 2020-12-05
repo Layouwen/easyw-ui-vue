@@ -1,20 +1,21 @@
 <template>
   <div>
-    <button :class="{checked}" @click="toggleChecked"><span></span></button>
+    <button :class="{checked: value}" @click="toggleChecked"><span></span></button>
+    {{ value }}
   </div>
 </template>
 
 <script lang='ts'>
-import { ref } from 'vue';
-
 export default {
   name: 'Switch',
-  setup() {
-    const checked = ref(false);
+  props: {value: Boolean},
+  setup(props, context) {
+    console.log(props, 'props');
+    console.log(context, 'context');
     const toggleChecked = () => {
-      checked.value = !checked.value;
+      context.emit('input', !props.value);
     };
-    return {checked, toggleChecked};
+    return {toggleChecked};
   },
 };
 </script>
