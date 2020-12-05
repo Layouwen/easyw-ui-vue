@@ -1,16 +1,15 @@
 <template>
-  <div>hello</div>
-  <div>world</div>
-  <Lyw />
+  <div>
+    <router-link to="/">首页</router-link>
+    <router-link to="/lyw2">梁又文2</router-link>
+  </div>
+  <router-view />
 </template>
 
 <script lang='ts'>
-import Lyw from './components/Lyw.vue';
 
 export default {
   name: 'App',
-  components: {
-    Lyw,
-  },
+  components: {},
 };
 </script>
