@@ -3,11 +3,9 @@
     <div class="abc-dialog-overlay" @click="onClickOverlay" />
     <div class="abc-dialog-wrapper">
       <div class="abc-dialog">
-        <header>标题<span class="abc-dialog-close" @click="close"></span></header>
+        <header>{{ title }}<span class="abc-dialog-close" @click="close"></span></header>
         <main>
-          <p>第一行字</p>
-          <p>第二行字</p>
-          <p>第三行字</p>
+          <slot />
         </main>
         <footer>
           <Button level="main" @click="ok">确认</Button>
@@ -25,6 +23,10 @@ export default {
   name: 'Dialog',
   components: {Button},
   props: {
+    title: {
+      type: String,
+      default: '提示',
+    },
     visible: {
       type: Boolean,
       default: false,

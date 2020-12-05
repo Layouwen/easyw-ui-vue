@@ -3,7 +3,10 @@
   <h1>示例1</h1>
   <Button @click="toggleDialog">显示Dialog</Button>
   <Dialog v-model:visible="x" :close-on-click-overlay="false" close-on-click-overlay
-          :ok="fn1" :cancel="fn2"></Dialog>
+          :ok="fn1" :cancel="fn2">
+    <p>h1</p>
+    <p>h2</p>
+  </Dialog>
 </template>
 
 <script lang='ts'>
