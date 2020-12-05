@@ -19,13 +19,18 @@ export default {
       type: String,
       default: 'normal',
     },
+    level: {
+      type: String,
+      default: 'normal',
+    },
   },
-  setup(props, context) {
-    const {theme, size} = props;
+  setup(props) {
+    const {theme, size, level} = props;
     const classes = computed(() => {
       return {
         [`abc-theme-${theme}`]: theme,
         [`abc-size-${size}`]: size,
+        [`abc-level-${level}`]: level,
       };
     });
     return {classes};
@@ -39,6 +44,7 @@ $border-color: #d9d9d9;
 $color: #333;
 $blue: #40a9ff;
 $radius: 4px;
+$red: red;
 .abc-button {
   box-sizing: border-box;
   display: inline-flex;
@@ -52,6 +58,7 @@ $radius: 4px;
   border: 1px solid $border-color;
   border-radius: $radius;
   box-shadow: 0 1px 0 fade-out(#000, .95);
+  transition: background 250ms;
   background: white;
 
   & + & {
@@ -104,6 +111,60 @@ $radius: 4px;
     height: 20px;
     padding: 0 4px;
     font-size: 12px;
+  }
+
+  &.abc-theme-button {
+    &.abc-level-main {
+      color: white;
+      border-color: $blue;
+      background: $blue;
+
+      &:hover,
+      &:focus {
+        border-color: darken($blue, 10%);
+        background: darken($blue, 10%);
+      }
+    }
+
+    &.abc-level-danger {
+      color: white;
+      border-color: $red;
+      background: $red;
+
+      &:hover,
+      &:focus {
+        border-color: darken($red, 10%);
+        background: darken($red, 10%);
+      }
+    }
+  }
+
+  &.abc-theme-link {
+    &.abc-level-danger {
+      color: $red;
+
+      &:hover, &:focus {
+        color: darken($red, 10%);
+      }
+    }
+  }
+
+  &.abc-theme-text {
+    &.abc-level-main {
+      color: $blue;
+
+      &:hover, &:focus {
+        color: darken($blue, 10%);
+      }
+    }
+
+    &.abc-level-danger {
+      color: $red;
+
+      &:hover, &:focus {
+        color: darken($red, 10%);
+      }
+    }
   }
 }
 </style>
