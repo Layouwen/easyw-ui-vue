@@ -1,19 +1,21 @@
 <template>
-  <div class="abc-dialog-overlay"></div>
-  <div class="abc-dialog-wrapper">
-    <div class="abc-dialog">
-      <header>标题<span class="abc-dialog-close"></span></header>
-      <main>
-        <p>第一行字</p>
-        <p>第二行字</p>
-        <p>第三行字</p>
-      </main>
-      <footer>
-        <Button level="main">确认</Button>
-        <Button>取消</Button>
-      </footer>
+  <template v-if="visible">
+    <div class="abc-dialog-overlay"></div>
+    <div class="abc-dialog-wrapper">
+      <div class="abc-dialog">
+        <header>标题<span class="abc-dialog-close"></span></header>
+        <main>
+          <p>第一行字</p>
+          <p>第二行字</p>
+          <p>第三行字</p>
+        </main>
+        <footer>
+          <Button level="main">确认</Button>
+          <Button>取消</Button>
+        </footer>
+      </div>
     </div>
-  </div>
+  </template>
 </template>
 
 <script lang='ts'>
@@ -22,6 +24,12 @@ import Button from './Button.vue';
 export default {
   name: 'Dialog',
   components: {Button},
+  props: {
+    visible: {
+      type: Boolean,
+      default: false,
+    },
+  },
 };
 </script>
 
