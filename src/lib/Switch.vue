@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <button :class="{checked: value}" @click="toggleChecked"><span></span></button>
-  </div>
+  <button class="abc-switch" :class="{'abc-checked': value}" @click="toggleChecked"><span></span></button>
 </template>
 
 <script lang='ts'>
@@ -17,10 +15,10 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $h: 22px;
 $h2: $h - 4px;
-button {
+.abc-switch {
   position: relative; height: $h; width: $h*2;
   border: none; border-radius: $h / 2; background: #bfbfbf;
 
@@ -34,7 +32,7 @@ button {
     > span { width: $h2 + 4px; }
   }
 
-  &.checked {
+  &.abc-checked {
     background: #1890ff;
 
     &:active {
