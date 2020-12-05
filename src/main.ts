@@ -1,8 +1,8 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-import Lyw from './components/Lyw.vue';
-import Lyw2 from './components/Lyw2.vue';
-import './index.css';
+import Home from './View/Home.vue';
+import Doc from './View/Doc.vue';
+import './index.scss';
 import { createWebHashHistory, createRouter } from 'vue-router';
 
 const history = createWebHashHistory(
@@ -11,8 +11,8 @@ const history = createWebHashHistory(
 const router = createRouter({
   history,
   routes: [
-    {path: '/', component: Lyw},
-    {path: '/lyw2', component: Lyw2},
+    {path: '/', component: Home},
+    {path: '/doc', component: Doc},
   ],
 });
 
