@@ -1,13 +1,14 @@
 <template>
   <div class="abc-tabs">
     <div class="abc-tabs-nav">
-      <div class="abc-tabs-nav-item" :class="{selected: t===selected}" v-for="(t,index) in titles" :key="index">{{
-          t
-        }}
+      <div class="abc-tabs-nav-item"
+           :class="{selected: t===selected}"
+           @click="select(t)"
+           v-for="(t,index) in titles" :key="index">{{ t }}
       </div>
     </div>
     <div class="abc-tabs-content">
-      <component class="abc-tabs-content-item" v-for="(c, index) in defaults" :key="index" :is="c" />
+      <component class="abc-tabs-content-item" :is="current" />
     </div>
   </div>
 </template>
@@ -31,11 +32,19 @@ export default {
         throw new Error('第' + index + '个' + tag.type + '元素不符合标准');
       }
     });
+    // 过滤当前选中的元素
+    const current = defaults.filter((tag) => {
+      return tag.props.title === props.selected;
+    })[0];
     // 将标签中的title值取出来
     const titles = defaults.map((tag) => {
       return tag.props.title;
     });
-    return {defaults, titles};
+    // 修改外部的选中标签
+    const select = (title: String) => {
+      context.emit('update:selected', title);
+    };
+    return {defaults, titles, current, select};
   },
 };
 </script>
