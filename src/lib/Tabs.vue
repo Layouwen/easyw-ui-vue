@@ -8,7 +8,8 @@
       </div>
     </div>
     <div class="abc-tabs-content">
-      <component class="abc-tabs-content-item" :is="current" />
+      <component class="abc-tabs-content-item" :class="{selected: c.props.title === selected }" v-for="c in defaults"
+                 :is="c" />
     </div>
   </div>
 </template>
@@ -49,7 +50,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $blue: #40a9ff;
 $color: #333;
 $border-color: #d9d9d9;
@@ -71,8 +72,15 @@ $border-color: #d9d9d9;
       }
     }
   }
+
   &-content {
     padding: 8px 0;
+    &-item {
+      display: none;
+      &.selected {
+        display: block;
+      }
+    }
   }
 }
 </style>
