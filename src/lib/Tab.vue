@@ -1,11 +1,11 @@
 <template>
-
+  <div>Tab组件</div>
 </template>
 
 <script lang='ts'>
 export default {
-name: "Tab"
-}
+  name: 'Tab',
+};
 </script>
 
 <style lang="scss" scoped>
