@@ -1,7 +1,10 @@
 <template>
   <div class="abc-tabs">
     <div class="abc-tabs-nav">
-      <div class="abc-tabs-nav-item" v-for="(t,index) in titles" :key="index">{{ t }}</div>
+      <div class="abc-tabs-nav-item" :class="{selected: t===selected}" v-for="(t,index) in titles" :key="index">{{
+          t
+        }}
+      </div>
     </div>
     <div class="abc-tabs-content">
       <component class="abc-tabs-content-item" v-for="(c, index) in defaults" :key="index" :is="c" />
@@ -14,6 +17,11 @@ import Tab from './Tab.vue';
 
 export default {
   name: 'Tabs',
+  props: {
+    selected: {
+      type: String,
+    },
+  },
   setup(props, context) {
     // 获取元素数组
     const defaults = context.slots.default();
