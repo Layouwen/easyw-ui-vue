@@ -85,9 +85,9 @@ $border-radius: 4px;
 }
 
 .features {
-  margin: 64px auto;
   width: 400px;
   height: 64px;
+  margin: 64px auto;
   @media (min-width: 800px) {
     width: 800px;
   }
@@ -98,8 +98,6 @@ $border-radius: 4px;
     display: flex;
     flex-wrap: wrap;
     > li {
-      width: 400px;
-      margin: 16px 0;
       display: grid;
       justify-content: start;
       align-content: space-between;
@@ -108,6 +106,8 @@ $border-radius: 4px;
         "icon text";
       grid-template-columns: 80px auto;
       grid-template-rows: 1fr auto;
+      width: 400px;
+      margin: 16px 0;
       > svg {
         grid-area: icon;
         width: 64px;
