@@ -4,7 +4,7 @@
       <div class="abc-tabs-nav-item"
            :class="{selected: t===selected}"
            @click="select(t)"
-           :ref="el=>{if(el) navItems[index] = el}"
+           :ref="el=>{ if(t===selected) selectedItem = el }"
            v-for="(t,index) in titles" :key="index">{{ t }}
       </div>
       <div class="abc-tabs-nav-indicator" ref="indicator"></div>
@@ -19,7 +19,7 @@
 </template>
 
 <script lang='ts'>
-import { ref, onMounted, onUpdated } from 'vue';
+import { ref, watchEffect, onMounted } from 'vue';
 import Tab from './Tab.vue';
 
 export default {
@@ -32,29 +32,24 @@ export default {
   setup(props, context) {
     // 获取container元素
     const container = ref<HTMLDivElement>(null);
-    // 获取tab数组
-    const navItems = ref<HTMLDivElement[]>([]);
+    // 获取选中的标签
+    const selectedItem = ref<HTMLDivElement>(null);
     // 获取下划线元素
     const indicator = ref<HTMLDivElement>(null);
-    // 切换下划线位置
-    const x = () => {
-      // 所有tab的元素
-      const divs = navItems.value;
-      // 获取选中的标签
-      const result = divs.filter(div => div.classList.contains('selected'))[0];
-      // 获取它的宽度
-      const {width} = result.getBoundingClientRect();
-      indicator.value.style.width = width + 'px';
+    // 第一次和每次更新都执行
+    onMounted(() => {
+      watchEffect(() => {
+        // 获取它的宽度
+        const {width} = selectedItem.value.getBoundingClientRect();
+        indicator.value.style.width = width + 'px';
 
-      // 计算下划线的偏移量
-      const {left: left1} = container.value.getBoundingClientRect();
-      const {left: left2} = result.getBoundingClientRect();
-      const left = left2 - left1;
-      indicator.value.style.left = left + 'px';
-    };
-    // 加载完毕后执行
-    onMounted(x);
-    onUpdated(x);
+        // 计算下划线的偏移量
+        const {left: left1} = container.value.getBoundingClientRect();
+        const {left: left2} = selectedItem.value.getBoundingClientRect();
+        const left = left2 - left1;
+        indicator.value.style.left = left + 'px';
+      });
+    });
 
     // 获取元素数组
     const defaults = context.slots.default();
@@ -64,10 +59,6 @@ export default {
         throw new Error('第' + index + '个' + tag.type + '元素不符合标准');
       }
     });
-    // 过滤当前选中的元素
-    const current = defaults.filter((tag) => {
-      return tag.props.title === props.selected;
-    })[0];
     // 将标签中的title值取出来
     const titles = defaults.map((tag) => {
       return tag.props.title;
@@ -76,7 +67,7 @@ export default {
     const select = (title: String) => {
       context.emit('update:selected', title);
     };
-    return {defaults, indicator, navItems, titles, current, select, container};
+    return {defaults, indicator, selectedItem, titles, select, container};
   },
 };
 </script>
