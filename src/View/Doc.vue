@@ -16,7 +16,7 @@
           </li>
         </ol>
         <h2>组件列表</h2>
-        <ul>
+        <ol>
           <li>
             <router-link to="/doc/button">Button 组件</router-link>
           </li>
@@ -29,7 +29,7 @@
           <li>
             <router-link to="/doc/tabs">Tabs 组件</router-link>
           </li>
-        </ul>
+        </ol>
       </aside>
       <main>
         <router-view />
@@ -53,10 +53,6 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.router-link-active {
-  text-decoration: underline;
-}
-
 .layout {
   display: flex;
   flex-direction: column;
@@ -96,17 +92,24 @@ aside {
   left: 0;
   width: 150px;
   height: 100%;
-  padding: 16px;
+  padding: 16px 0;
   padding-top: 70px;
   background: lightblue;
 
   > h2 {
+    padding: 0 16px;
     margin-bottom: 4px;
   }
 
   > ol {
     > li {
-      padding: 4px 0;
+      > a {
+        display: block;
+        padding: 4px 16px;
+        &.router-link-active {
+          background: #fff;
+        }
+      }
     }
   }
 
