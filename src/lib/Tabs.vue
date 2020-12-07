@@ -1,6 +1,6 @@
 <template>
   <div class="abc-tabs">
-    <div class="abc-tabs-nav">
+    <div class="abc-tabs-nav" ref="container">
       <div class="abc-tabs-nav-item"
            :class="{selected: t===selected}"
            @click="select(t)"
@@ -19,7 +19,7 @@
 </template>
 
 <script lang='ts'>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onUpdated } from 'vue';
 import Tab from './Tab.vue';
 
 export default {
@@ -30,21 +30,32 @@ export default {
     },
   },
   setup(props, context) {
+    // 获取container元素
+    const container = ref<HTMLDivElement>(null);
     // 获取tab数组
     const navItems = ref<HTMLDivElement[]>([]);
     // 获取下划线元素
     const indicator = ref<HTMLDivElement>(null);
-    // 加载完毕后执行
-    onMounted(() => {
+    // 切换下划线位置
+    const x = () => {
       // 所有tab的元素
       const divs = navItems.value;
       // 获取选中的标签
       const result = divs.filter(div => div.classList.contains('selected'))[0];
       // 获取它的宽度
       const {width} = result.getBoundingClientRect();
-      console.log(width);
       indicator.value.style.width = width + 'px';
-    });
+
+      // 计算下划线的偏移量
+      const {left: left1} = container.value.getBoundingClientRect();
+      const {left: left2} = result.getBoundingClientRect();
+      const left = left2 - left1;
+      indicator.value.style.left = left + 'px';
+    };
+    // 加载完毕后执行
+    onMounted(x);
+    onUpdated(x);
+
     // 获取元素数组
     const defaults = context.slots.default();
     // 遍历元素数组，判断类型是否为Tab
@@ -65,7 +76,7 @@ export default {
     const select = (title: String) => {
       context.emit('update:selected', title);
     };
-    return {defaults, indicator, navItems, titles, current, select};
+    return {defaults, indicator, navItems, titles, current, select, container};
   },
 };
 </script>
@@ -99,6 +110,7 @@ $border-color: #d9d9d9;
       height: 3px;
       width: 100%;
       background: $blue;
+      transition: left 250ms;
     }
   }
 
