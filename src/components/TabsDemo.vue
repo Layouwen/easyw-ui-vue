@@ -16,7 +16,7 @@ export default {
   name: 'TabsDemo',
   components: {Tabs, Tab},
   setup() {
-    const x = ref('我是导航2');
+    const x = ref('导航1');
     return {x};
   },
 };

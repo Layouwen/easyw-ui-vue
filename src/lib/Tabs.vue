@@ -10,17 +10,14 @@
       <div class="abc-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="abc-tabs-content">
-      <component class="abc-tabs-content-item"
-                 :class="{selected: c.props.title === selected }"
-                 v-for="c in defaults"
-                 :is="c" />
+      <component :is="current" :key="current.props.title" />
     </div>
   </div>
 </template>
 
 <script lang='ts'>
-import { ref, watchEffect, onMounted } from 'vue';
 import Tab from './Tab.vue';
+import { ref, onUpdated, onMounted, computed } from 'vue';
 
 export default {
   name: 'Tabs',
@@ -36,20 +33,23 @@ export default {
     const selectedItem = ref<HTMLDivElement>(null);
     // 获取下划线元素
     const indicator = ref<HTMLDivElement>(null);
-    // 第一次和每次更新都执行
-    onMounted(() => {
-      watchEffect(() => {
-        // 获取它的宽度
-        const {width} = selectedItem.value.getBoundingClientRect();
-        indicator.value.style.width = width + 'px';
+    // 设置
+    const setIndicator = () => {
+      // 获取它的宽度
+      const {width} = selectedItem.value.getBoundingClientRect();
+      indicator.value.style.width = width + 'px';
+      console.log(width);
 
-        // 计算下划线的偏移量
-        const {left: left1} = container.value.getBoundingClientRect();
-        const {left: left2} = selectedItem.value.getBoundingClientRect();
-        const left = left2 - left1;
-        indicator.value.style.left = left + 'px';
-      });
-    });
+      // 计算下划线的偏移量
+      const {left: left1} = container.value.getBoundingClientRect();
+      const {left: left2} = selectedItem.value.getBoundingClientRect();
+      const left = left2 - left1;
+      indicator.value.style.left = left + 'px';
+    };
+
+    // 第一次和每次更新都执行
+    onMounted(setIndicator);
+    onUpdated(setIndicator);
 
     // 获取元素数组
     const defaults = context.slots.default();
@@ -59,6 +59,9 @@ export default {
         throw new Error('第' + index + '个' + tag.type + '元素不符合标准');
       }
     });
+    const current = computed(() => {
+      return defaults.find(tag => tag.props.title === props.selected);
+    });
     // 将标签中的title值取出来
     const titles = defaults.map((tag) => {
       return tag.props.title;
@@ -67,7 +70,7 @@ export default {
     const select = (title: String) => {
       context.emit('update:selected', title);
     };
-    return {defaults, indicator, selectedItem, titles, select, container};
+    return {current, defaults, indicator, selectedItem, titles, select, container};
   },
 };
 </script>
@@ -107,12 +110,6 @@ $border-color: #d9d9d9;
 
   &-content {
     padding: 8px 0;
-    &-item {
-      display: none;
-      &.selected {
-        display: block;
-      }
-    }
   }
 }
 </style>
