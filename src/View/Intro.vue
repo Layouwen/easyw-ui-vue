@@ -1,18 +1,15 @@
 <template>
-  <article class="markdown-body">
-    <h1>介绍</h1>
-    <p>无名 UI 是一款基于 Vue 3 和 TypeScript 的 UI 组件库。</p>
-    <p>此框架仅用来熟悉 Vue 3 API 而制作，通过本项目你可以快速了解 Vue 3 的基本使用方法。</p>
-    <p>我并不建议将此框架用于生产环境。这个框架严格来说并不严谨，可能存在许多 BUG。</p>
-    <p>如果你使用本框架进行学习，我非常建议你可以进入我的 <a href="http://github.com/layouwen">Github</a>
-      仓库进行浏览提交记录。我将开发过程完整的进行细分，每个小功能提交一个Commit，你可以通过Commit记录快速复现我的开发流程。</p>
-    <p>下一篇文章：<a href="#/doc/install">安装</a></p>
-  </article>
+  <article class="markdown-body" v-html="markdown"></article>
 </template>
 
 <script lang='ts'>
+import markdown from '../markdown/intro.md';
+
 export default {
   name: 'Intro',
+  data() {
+    return {markdown};
+  },
 };
 </script>
 
