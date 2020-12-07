@@ -19,6 +19,7 @@
     components: {Button}
   }
 &lt;/script&gt;</code></pre>
+    <p>下一节内容：<a href="#/doc/button">Button组件</a></p>
   </article>
 </template>
 
