@@ -33,7 +33,6 @@ export default {
   display: flex;
   width: 100%;
   padding: 16px;
-  background: pink;
 
   > .logo {
     max-width: 6em;

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="topNavAndBanner">
     <TopNav />
     <div class="banner">
       <h1>无名框架</h1>
@@ -22,17 +22,21 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+.topNavAndBanner {
+  background: rgb(227, 255, 253);
+  background: linear-gradient(140deg, rgba(227, 255, 253, 1) 0%, rgba(183, 233, 230, 1) 100%);
+}
+
 .banner {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 100px 0;
-  background: lightgreen;
-  
+
   > .actions {
     padding: 8px 0;
-    
+
     > a {
       display: inline-block;
       $h: 28px;
