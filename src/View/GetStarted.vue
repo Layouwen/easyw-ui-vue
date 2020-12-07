@@ -1,18 +1,12 @@
 <template>
-  <article class="markdown-body" v-html="markdown"></article>
+  <Markdown path="../markdown/get-started.md" />
 </template>
 
 <script lang='ts'>
-import markdown from '../markdown/get-started.md';
+import Markdown from '../components/Markdown.vue';
 
 export default {
   name: 'GetStarted',
-  data() {
-    return {markdown};
-  },
+  components: {Markdown},
 };
 </script>
-
-<style lang="scss" scoped>
-
-</style>
