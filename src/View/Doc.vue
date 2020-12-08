@@ -90,6 +90,7 @@ aside {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1;
   width: 150px;
   height: 100%;
   padding: 16px 0;

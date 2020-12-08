@@ -85,8 +85,7 @@ $border-radius: 4px;
 }
 
 .features {
-  width: 400px;
-  height: 64px;
+  width: 100%;
   margin: 64px auto;
   @media (min-width: 800px) {
     width: 800px;
