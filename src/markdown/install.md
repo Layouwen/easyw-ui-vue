@@ -2,13 +2,13 @@
 
 使用npm进行安装
 
-```bash
+```
 npm install wuming-ui
 ```
 
 使用yarn进行安装
 
-```bash
+```
 yarn add wuming-ui
 ```
 

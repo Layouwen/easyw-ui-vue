@@ -2,7 +2,7 @@
 
 如果你第一次使用此框架，请先安装本组件库。 接着在你的代码中引入对应的组件
 
-```js
+```
 import { Button, Tabs, Switch, Dialog } from "wuming-ui"
 ```
 
@@ -12,7 +12,7 @@ import { Button, Tabs, Switch, Dialog } from "wuming-ui"
 
 代码示例：
 
-```html
+```
 <template>
   <div>
     <Button>按钮组件</Button>
