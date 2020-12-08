@@ -55,7 +55,7 @@ export default {
     const defaults = context.slots.default();
     // 遍历元素数组，判断类型是否为Tab
     defaults.forEach((tag, index) => {
-      if (tag.type !== Tab) {
+      if (tag.type.name !== Tab.name) {
         throw new Error('第' + index + '个' + tag.type + '元素不符合标准');
       }
     });

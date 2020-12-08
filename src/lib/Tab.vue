@@ -9,7 +9,3 @@ export default {
   name: 'Tab',
 };
 </script>
-
-<style lang="scss">
-
-</style>
