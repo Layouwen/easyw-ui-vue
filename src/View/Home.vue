@@ -85,13 +85,23 @@ $border-radius: 4px;
 }
 
 .features {
-  width: 100%;
   margin: 64px auto;
+  padding: 0 16px;
   @media (min-width: 800px) {
     width: 800px;
+    > ul {
+      > li {
+        width: 50%;
+      }
+    }
   }
   @media (min-width: 1200px) {
     width: 1200px;
+    > ul {
+      > li {
+        width: 33.3333%;
+      }
+    }
   }
   > ul {
     display: flex;
@@ -105,7 +115,6 @@ $border-radius: 4px;
         "icon text";
       grid-template-columns: 80px auto;
       grid-template-rows: 1fr auto;
-      width: 400px;
       margin: 16px 0;
       > svg {
         grid-area: icon;
